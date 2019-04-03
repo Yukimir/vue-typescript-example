@@ -2,15 +2,16 @@
   <div>
     <p>Count * 10 = {{Count}}</p>
     <p @click="onClick">点击这里可以让count + 5</p>
+    <global-component-test></global-component-test>
   </div>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { getModule } from 'vuex-module-decorators';
-import TestModule from '../store/test.module';
+import TestModule from '../stores/vuexTest.store';
 @Component
 export default class Test extends Vue {
-  // 通过getModule来获得先前注册的VuexModule对象
+  // 通过getModule来获得注入的VuexModule对象
   private test = getModule(TestModule);
 
   private onClick() {
